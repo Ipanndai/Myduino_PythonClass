@@ -1,0 +1,33 @@
+INSTALLATION GUIDE :)
+
+INSTALL PYTHON & VS CODE
+1. Download Python
+- Download here: https://www.python.org/downloads/.
+- Download latest version.
+
+2. Install Python 
+- Go through installation Python.
+- Check the box "Add Python to PATH".  //do this before clicking "Install Now"
+- Complete the installation.
+
+3. Verify Installation
+- Open the terminal.  //for windows: "Command Prompt", for mac: "Terminal"
+- Type "python --version" and press 'Enter'.
+- You should see installed Python version.
+
+4. Download VS Code
+- Download here: https://code.visualstudio.com/.
+- Download amd install version of your operating system.
+- Complete the installation.
+
+5. Install Python extension
+- Open Visual Studio Code
+- Click "Extension" icon on left sidebar.  //press (Ctrl + Shift + X) for windows
+- Search for "Python" by Microsoft and install.
+
+6. Configure Python in VS Code
+- for Windows/Linux press (Ctrl + Shift + P), for Mac press (Cmd + Shift + P).
+- Type "Python: Select Interpreter" and press 'Enter'.
+- Choose the Python interpreter. //it will look like "Python 3.x.x"
+- Open new 'terminal' in VS Code. 
+- Type "python --version" to ensure it shows the Python version you installed.
