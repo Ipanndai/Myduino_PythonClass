@@ -1,0 +1,73 @@
+tasks = []
+
+def to_do_list_app():
+    while True:
+        print("\nTo-Do List Options:")
+        print("1. Display Current Tasks")
+        print("2. Add a New Task")
+        print("3. Update a Task")
+        print("4. Delete a Task")
+        print("5. Exit")
+
+        try:
+            choice = int(input("Choose an option (1-5): "))
+            if choice == 1:
+                display_tasks()
+            elif choice == 2:
+                add_task()
+            elif choice == 3:
+                update_task()
+            elif choice == 4:
+                delete_task()
+            elif choice == 5:
+                print("Exiting To-Do List App")
+                break
+            else:
+                print("Invalid choice. Please choose a number between 1 and 5.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+def display_tasks():
+    print("\nCurrent Tasks:" if tasks else "\nYou have completed all the tasks!")
+    for idx, task in enumerate(tasks, start=1):
+        print(f"{idx}. {task}")
+    print()
+
+def add_task():
+    task = input("Enter a new task: ")
+    tasks.append(task)
+    print(f"Task '{task}' added successfully!")
+    display_tasks()
+
+def update_task():
+    if tasks:
+        display_tasks()
+        try:
+            index = int(input("Enter the task number to update: ")) - 1
+            if 0 <= index < len(tasks):
+                tasks[index] = input("Enter the updated task: ")
+                print(f"Task {index + 1} updated successfully!")
+            else:
+                print("Invalid task number.")
+        except ValueError:
+            print("Please enter a valid number.")
+        display_tasks()
+    else:
+        display_tasks()
+
+def delete_task():
+    if tasks:
+        display_tasks()
+        try:
+            index = int(input("Enter the task number to delete: ")) - 1
+            if 0 <= index < len(tasks):
+                print(f"Task '{tasks.pop(index)}' deleted successfully!")
+            else:
+                print("Invalid task number.")
+        except ValueError:
+            print("Please enter a valid number.")
+        display_tasks()
+    else:
+        display_tasks()
+
+to_do_list_app()
