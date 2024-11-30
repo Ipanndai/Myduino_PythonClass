@@ -1,0 +1,40 @@
+import time
+
+with open("function.txt", "r") as file:
+    function = [line.strip() for line in file]
+
+print("Type the sentence displayed on the whiteboard as fast as you can.")
+
+for function_index, function_to_type in enumerate(function):
+    input(f"\nPress 'Enter' when you're ready to start {function_index + 1}...")
+
+    start_time = time.time()
+
+    user_input = input("Type here: ")
+
+    if user_input.lower() == 'quit':
+        print("Game ended. Thank you for playing!")
+        break
+
+    end_time = time.time()
+    time_taken = end_time - start_time
+
+    word_count = len(function_to_type.split())
+    wpm = (word_count / time_taken) * 60
+
+    accuracy = len([i for i, j in zip(function_to_type, user_input) if i == j]) / len(function_to_type) * 100
+
+    print("\n--- Results ---")
+    print(f"Time taken: {time_taken:.2f} seconds")
+    print(f"Words per minute (WPM): {wpm:.2f}")
+    print(f"Accuracy: {accuracy:.2f}%")
+
+    if accuracy == 100:
+        print("Perfect! No mistakes!")
+    elif accuracy >= 80:
+        print("Great job! Only a few mistakes.")
+    else:
+        print("Keep practicing! You'll get better.")
+
+else:
+    print("\nCongratulations! You've completed all the sentences!")
